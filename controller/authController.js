@@ -5,14 +5,12 @@ const signup=async(req,res,next)=>{
     console.log(name,email,password,confirmPassword);
 
     try {
-        const userInfo=userModel(req.body)
+        const userInfo=userModule(req.body)
         const result=await userInfo.save()
 
         res.status(200).json({
             success:true,
-            data:{
-
-            }
+            result
         })
     } catch (e) {
         if(e.code===11000){
